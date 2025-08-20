@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+    <title>Anika HRM</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
+    <link rel="stylesheet" href="directory.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/26eea4c998.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">Employee Management</div>
+        <div class="help-icon">      
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ff5400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:2.5vw;height: 2.5vw;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+  </div>
+    </div>
+    
+    <div class="sidebar">
+        <div class="logo-container">
+            <img class="logo-1-icon18" alt="" src="https://ik.imagekit.io/jxuol7kjt/logo-12@2x.png?updatedAt=1740831644868" />
+            <div class="logo-text">Anika <span>HRM</span></div>
+        </div>
+        
+        <div class="my-view">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
+            <polygon points="12 15 17 21 7 21 12 15"></polygon>
+          </svg>
+            Hr View
+        </div>
+        <div class="my-view">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
+            <polygon points="12 15 17 21 7 21 12 15"></polygon>
+          </svg>
+            Manager View
+        </div>
+        
+        <div class="menu-item" onclick="window.location.href='test_emp.php'">
+           <img src="https://hrms.anikasterilis.com/public/vector3.svg" alt="">
+            Dashboard
+        </div>
+        
+       
+        
+        <div class="menu-item" onclick="window.location.href='apply-leave-emp.php'">
+            <img src="https://hrms.anikasterilis.com/emp_public/vector2.svg" alt="">
+            Leaves
+        </div>
+        
+        
+        
+        <div class="menu-item" onclick="window.location.href='attendenceemp2.php'">
+            <img class="user" src="https://hrms.anikasterilis.com/emp_public/vector4.svg" alt="">
+            Attendance
+           
+        </div>
+        <div class="menu-item active"  id="attendanceMenu" window.location.href='card.php'">
+            <img src="https://hrms.anikasterilis.com/emp_public/arcticonsgooglepay2.svg" alt="" style="margin-left: 1vw;">
+            Directory
+        </div>
+        
+        <div class="menu-item" onclick="window.location.href='./module_transition_emp-policies/index.php?target=https://hrms.anikasterilis.com/emppolicy/emppolicy.php'">
+            <img src="https://hrms.anikasterilis.com/emp_public/streamlineinterfacecontentchartproductdataanalysisanalyticsgraphlinebusinessboardchart1.svg" alt="">
+            Policies
+        </div>
+
+      
+        
+        <div class="logout">
+          <img src="https://hrms.anikasterilis.com/emp_public/group2.svg" alt="">
+          <p>Logout</p>
+        </div>
+
+    </div>
+    <div class="main-content">
+    <div class="att-header">
+        <button id="executiveBtn" class="toggle-btn active" onclick="setActive(this, 'executiveContainer')">
+           Executive
+        </button>
+        <button id="hrBtn" class="toggle-btn" onclick="setActive(this, 'hrContainer')">
+            HR
+        </button>
+        <button id="itBtn" class="toggle-btn" onclick="setActive(this, 'itContainer')">
+           IT
+        </button>
+        <button id="facilitiesBtn" class="toggle-btn" onclick="setActive(this, 'facilitiesContainer')">
+            Facilities
+        </button>
+    </div>
+    <!--main content-->
+    <div class="main-container">
+        <!-- Executive Section -->
+        <div id="executiveContainer" class="section active">
+            <div class="executive-layout">
+                <!-- COO Section -->
+                <div class="executive-column">
+                    <h2 class="section-header">COO</h2>
+                    <div class="card">
+                        <div class="profile-pic"></div>
+                        <div class="name">Prabdeep Singh Maan</div>
+                        <div class="title">Chief Operations Officer</div>
+                        <div class="role">Executive</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="icon">✉</span>
+                                <span>emily.davis@company.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">☎</span>
+                                <span>9876543212</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CFO Section -->
+                <div class="executive-column">
+                    <h2 class="section-header">CFO</h2>
+                    <div class="card">
+                        <div class="profile-pic"></div>
+                        <div class="name">Priya Patel</div>
+                        <div class="title">Chief Financial Officer</div>
+                        <div class="role">Executive</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="icon">✉</span>
+                                <span>priya.patel@company.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">☎</span>
+                                <span>9876543214</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- HR Section -->
+        <div id="hrContainer" class="section">
+            <div class="card-section">
+                <h2 class="section-header">HR Department</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <div class="profile-pic"></div>
+                        <div class="name">Emily Davis</div>
+                        <div class="title">HR Manager</div>
+                        <div class="role">HR</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="icon">✉</span>
+                                <span>emily.davis@company.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">☎</span>
+                                <span>9876543212</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="profile-pic"></div>
+                        <div class="name">Michael Chen</div>
+                        <div class="title">HR Executive</div>
+                        <div class="role">HR</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="icon">✉</span>
+                                <span>michael.chen@company.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">☎</span>
+                                <span>9876543213</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-section">
+                <h2 class="section-header">HR Support</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <div class="profile-pic"></div>
+                        <div class="name">Priya Patel</div>
+                        <div class="title">Recruitment Specialist</div>
+                        <div class="role">HR</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="icon">✉</span>
+                                <span>priya.patel@company.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">☎</span>
+                                <span>9876543214</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- IT Section -->
+        <div id="itContainer" class="section">
+            <div class="card-section">
+                <h2 class="section-header">IT Leadership</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <div class="profile-pic"></div>
+                        <div class="name">David Wilson</div>
+                        <div class="title">IT Manager</div>
+                        <div class="role">IT</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="icon">✉</span>
+                                <span>david.wilson@company.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">☎</span>
+                                <span>9876543215</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="profile-pic"></div>
+                        <div class="name">Sophia Rodriguez</div>
+                        <div class="title">Senior Developer</div>
+                        <div class="role">IT</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="icon">✉</span>
+                                <span>sophia.rodriguez@company.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">☎</span>
+                                <span>9876543216</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-section">
+                <h2 class="section-header">IT Development</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <div class="profile-pic"></div>
+                        <div class="name">Alex Kim</div>
+                        <div class="title">Web Developer</div>
+                        <div class="role">IT</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="icon">✉</span>
+                                <span>alex.kim@company.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">☎</span>
+                                <span>9876543217</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Facilities Section -->
+        <div id="facilitiesContainer" class="section">
+            <div class="card-section">
+                <h2 class="section-header">Facilities Management</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <div class="profile-pic"></div>
+                        <div class="name">James Taylor</div>
+                        <div class="title">Facility Manager</div>
+                        <div class="role">Facilities</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="icon">✉</span>
+                                <span>james.taylor@company.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">☎</span>
+                                <span>9876543218</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="profile-pic"></div>
+                        <div class="name">Robert Garcia</div>
+                        <div class="title">Maintenance Supervisor</div>
+                        <div class="role">Facilities</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="icon">✉</span>
+                                <span>robert.garcia@company.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">☎</span>
+                                <span>9876543219</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
+<script>
+    function setActive(button, containerId) {
+         // Hide all sections
+         document.querySelectorAll('.section').forEach(section => {
+             section.classList.remove('active');
+         });
+ 
+         // Show selected section
+         document.getElementById(containerId).classList.add('active');
+ 
+         // Remove 'active' class from all buttons
+         document.querySelectorAll('.toggle-btn').forEach(btn => {
+             btn.classList.remove('active');
+         });
+ 
+         // Add 'active' class to clicked button
+         button.classList.add('active');
+     }
+</script>
+</body>
+</html>
